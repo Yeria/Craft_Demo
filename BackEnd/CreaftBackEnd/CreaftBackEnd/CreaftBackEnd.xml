@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CraftBackEnd</name>
+    </assembly>
+    <members>
+        <member name="M:CraftBackEnd.Controllers.UserController.GetUser(System.Int32)">
+            <summary>
+            Gets User Profile information
+            </summary>
+            <remarks>
+            <b>- Valid Bearer token required</b>
+            <hr />
+            </remarks>
+            <param name="id">User ID of user to get</param>
+            <returns></returns>
+            <response code="200">Returns User object of requested User ID</response>
+            <response code="401">token does not match userId or token is invalid</response>  
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,83 @@
+POST https://localhost:44304/api/v1/calculator/calculatenetworth
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYW1laWQiOiIxIiwibmJmIjoxNTkyOTQ4MzQ0LCJleHAiOjE1OTM1NTMxNDQsImlhdCI6MTU5Mjk0ODM0NH0.PId27dVq3TEGuFylpotB6IlTITccyXP92QM1HtUix2I
+
+{   
+    "assets":{"cashAndInvestments":[{"label":"Chequing","value":2000},{"label":"Saving for Taxes","value":4000},{"label":"Rainy Day Fund","value":506},{"label":"Savings for Fun","value":5000},{"label":"Savings for Travel","value":400},{"label":"Savings for Personal Development","value":200},{"label":"Investment 1","value":5000},{"label":"Investment 2","value":60000}],"longTermAssets":[{"label":"Primary Home","value":455000},{"label":"Second Home","value":1564321}]},"liabilities":{"shortTermLiabilities":[{"label":"Credit Card 1","value":4342},{"label":"Credit Card 1","value":4342}],"longTermDebt":[{"label":"Mortgage 1","value":250999},{"label":"Mortgage 2","value":632634},{"label":"Line of Credit","value":10000},{"label":"Investment Loan","value":10000}]}
+}
+###
+GET https://localhost:44304/api/v1/user/getuser?id=1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYW1laWQiOiIxIiwibmJmIjoxNTkyOTQ4MzQ0LCJleHAiOjE1OTM1NTMxNDQsImlhdCI6MTU5Mjk0ODM0NH0.PId27dVq3TEGuFylpotB6IlTITccyXP92QM1HtUix2I
+
+###
+POST https://localhost:44304/api/v1/iam/login
+Content-Type: application/json
+
+{
+    "username": "a@a",
+    "password": "p@ssw0rd"
+}
+
+###
+POST https://localhost:44304/api/v1/iam/isauthenticated
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYW1laWQiOiIxIiwibmJmIjoxNTkyOTQ0MTg1LCJleHAiOjE1OTM1NDg5ODUsImlhdCI6MTU5Mjk0NDE4NX0.CbEfkVkIuNf5--dWdKrmIcaEIHOQ46Rn11kOmjmh6qc
+
+{
+}
+
+###
+POST https://localhost:44304/api/v1/iam/createuser
+content-type: application/json
+
+{
+    "firstName":"Phillip",
+    "lastName": "Test",
+    "email": "philliptest@test.com",
+    "status": "A",
+    "membertype": "M"
+}
+
+
+# "Liabilities": {
+#         "ShortTermLiabilities": [
+#             {
+#                 "Label": "",
+#                 "Value": 1000
+#             },
+#             {
+#                 "Label": "",
+#                 "Value": 1000
+#             }
+#         ],
+#         "LongTermDebt": [
+#             {
+#                 "Label": "",
+#                 "Value": 1000
+#             }, {
+#                 "Label": "",
+#                 "Value": 1000
+#             }
+#         ]
+#     },
+#     "Assets": {
+#         "CashAndInvestments": [
+#             {
+#                 "Label": "",
+#                 "Value": 1001
+#             }, {
+#                 "Label": "",
+#                 "Value": 1000
+#             }
+#         ],
+#         "LongTermAssets": [
+#             {
+#                 "Label": "",
+#                 "Value": 1000
+#             }, {
+#                 "Label": "",
+#                 "Value": 1000
+#             }
+#         ]
+#     }

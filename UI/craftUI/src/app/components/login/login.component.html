@@ -1,0 +1,78 @@
+<div class="view-container">
+    <div class="login-container">
+        <form class="form-container" role="form" [formGroup]="formData" (ngSubmit)="submitData()">
+            <h1>Sign In</h1>
+        
+            <mat-form-field class="width100 username-control" appearance="standard">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Enter your email" name="email" formControlName="email" required>
+                <mat-error>
+                    A valid email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="width100 password-control" appearance="standard">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Enter your password" name="password" formControlName="password" required>
+                <mat-error>
+                    A valid password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <button class="width100" mat-raised-button color="primary" type="submit">
+                <span class="mat-button-wrapper">Sign In</span>
+                <div matripple class="mat-ripple mat-button-ripple"></div>
+            </button>
+            
+        </form>
+
+        <div class="vertical-bar-container">
+            <div class="vertical-bar">
+            </div>
+            <div class="text">
+                <span>OR</span>
+            </div>
+            <div class="vertical-bar">
+            </div>
+        </div>
+        
+        <!-- <div class="form-container">
+            <mat-form-field class="width100 name-control" appearance="standard">
+                <mat-label>Your Name</mat-label>
+                <input type="text" matInput placeholder="Enter your name" name="name" [(ngModel)]="userName">
+            </mat-form-field>
+            <br>
+            <button (click)="proceedAnonymously()" class="width100" mat-raised-button color="primary" type="button">
+                <span class="mat-button-wrapper">Proceed Without Account</span>
+                <div matripple class="mat-ripple mat-button-ripple"></div>
+            </button>
+        </div> -->
+        <form class="form-container" role="form" method="POST" [formGroup]="formDataAnonymous" (ngSubmit)="proceedAnonymously()">
+            <mat-form-field class="width100 name-control" appearance="standard">
+                <mat-label>Your Name</mat-label>
+                <input type="text" matInput placeholder="Enter your name" name="anonymousName" formControlName="anonymousName" required [(ngModel)]="userName">
+                <mat-error>
+                    Your name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <button class="width100" mat-raised-button color="primary" type="submit">
+                <span class="mat-button-wrapper">Proceed Without Account</span>
+                <div matripple class="mat-ripple mat-button-ripple"></div>
+            </button>
+        </form>
+    </div>
+</div>
+
+
+<!-- <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Favorite food</mat-label>
+      <input matInput placeholder="Ex. Pizza" value="Sushi">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Leave a comment</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field>
+  </form> -->

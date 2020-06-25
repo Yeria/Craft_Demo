@@ -1,0 +1,50 @@
+@media (min-width: 774px) {
+    .login-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: 775px;
+
+        .form-container {
+            flex-grow: 2;
+        }
+
+        .vertical-bar-container {
+            display: flex;
+            flex-flow: column;
+            align-self: stretch;
+            flex-grow: 1;
+            padding: 0px 33px;
+            align-items: center;
+
+            .vertical-bar {
+                height: 100%;
+                width: 1px;
+                -webkit-box-align: center;
+                align-items: center;
+                background: #b9b6b6;
+            }
+
+            .text {
+                color: rgb(49, 49, 49);
+                font-size: 9.75px;
+                letter-spacing: 0.75px;
+                text-transform: uppercase;
+                padding: 20px;
+            }
+        }
+    }
+
+    .width100 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 773px) {
+    .login-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: 375px;
+    }
+}

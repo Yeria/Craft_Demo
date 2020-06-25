@@ -1,0 +1,112 @@
+<section class="web_homePage" (scroll)="onWindowScroll($event);">  
+    <header class="animated fadeInDown" id="navbar">  
+        <span class="greeting-name">Hi, {{userName}}!</span>
+        <span class="greeting-text">Your networth is</span>
+        <span class="greeting-value" [class]="netWorth > 0 ? 'positive-balance' : 'negative-balance'">{{currencyPrefix}}{{netWorth}}</span>         
+    </header>
+ </section>
+<div class="form-window">
+    <div class="title-bar">
+        <span class="greeting">Hi, {{userName}}!</span><br>
+        <div style="display: flex;">
+            <span class="greeting">Your networth is</span>
+            <span class="value" [class]="netWorth > 0 ? 'positive-balance' : 'negative-balance'">{{currencyPrefix}}{{netWorth}}</span> 
+        </div>
+    </div>
+    <mat-form-field class="width100">
+        <mat-label>Currency</mat-label>
+        <!-- <mat-select (ngModelChange)="onCurrencyChange($event)" [(value)]="currencyPrefix"> -->
+        <mat-select (selectionChange)="onCurrencyChange($event)" [value]="0">
+            <mat-option *ngFor="let c of currencyTypes" [value]="c.value">
+                {{c.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div class="main-view">
+        <div class="subtitle-bar">
+            <h1 class="title">Assets</h1>
+            <h3 class="value">{{currencyPrefix}}{{totalAssets}}</h3> 
+        </div>
+        <div style="flex-flow: wrap;">
+            <div *ngFor="let a of assets">
+                <h2>{{a.title}}</h2>
+                <div>
+                    <mat-form-field *ngFor="let s of a.staticFields" style="width: 20%; padding: 1%; min-width: 200px;" class="username-control" appearance="standard">
+                        <mat-label>{{s.label}}</mat-label>
+                        <input (focusout)="validateInput($event)" min="0" matInput placeholder="ex. 1,000" type="number" [(ngModel)]="s.value">
+                        <span matPrefix>{{currencyPrefix}}&nbsp;</span>
+                        <span matSuffix>.00</span>
+                    </mat-form-field>
+                    <hr>
+
+                    <div class="button-bar">
+                        <button (click)="addNewField(a.dynamicFields, 'Other')" mat-flat-button color="accent" >
+                            <span class="mat-button-wrapper">Add</span>
+                            <div matripple class="mat-ripple mat-button-ripple"></div>
+                        </button>
+                        <div class="divider"></div>
+                        <button (click)="removeLastField(a.dynamicFields)" mat-flat-button color="accent" >
+                            <span class="mat-button-wrapper">Remove</span>
+                            <div matripple class="mat-ripple mat-button-ripple"></div>
+                        </button>
+                    </div>
+                    
+                    <br>
+                    <p class="button-hint-text" *ngIf="a.dynamicFields.length == 0">No addtional liabilities</p>
+                    <mat-form-field *ngFor="let d of a.dynamicFields" style="width: 20%; padding: 1%; min-width: 200px;" class="username-control" appearance="standard">
+                        <mat-label>{{d.label}}</mat-label>
+                        <input (focusout)="validateInput($event)" min="0" matInput placeholder="ex. 1,000" type="number" [(ngModel)]="d.value">
+                        <span matPrefix>{{currencyPrefix}}&nbsp;</span>
+                        <span matSuffix>.00</span>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        
+        <div class="subtitle-bar">
+            <h1 class="title">Liabilities</h1>
+            <h3 class="value">{{currencyPrefix}}{{totalLiabilities}}</h3>
+        </div>
+        
+        <div style="flex-flow: wrap;">
+            <div *ngFor="let l of liabilities">
+                <h2>{{l.title}}</h2>
+                <div>
+                    <mat-form-field *ngFor="let s of l.staticFields" style="width: 20%; padding: 1%; min-width: 200px;" class="username-control" appearance="standard">
+                        <mat-label>{{s.label}}</mat-label>
+                        <input (focusout)="validateInput($event)" min="0" matInput placeholder="ex. 1,000" type="number" [(ngModel)]="s.value">
+                        <span matPrefix>{{currencyPrefix}}&nbsp;</span>
+                        <span matSuffix>.00</span>
+                    </mat-form-field>
+                    <hr>
+
+                    <div class="button-bar">
+                        <button (click)="addNewField(l.dynamicFields, 'Other')" mat-flat-button color="accent" >
+                            <span class="mat-button-wrapper">Add</span>
+                            <div matripple class="mat-ripple mat-button-ripple"></div>
+                        </button>
+                        <div class="divider"></div>
+                        <button (click)="removeLastField(l.dynamicFields)" mat-flat-button color="accent" >
+                            <span class="mat-button-wrapper">Remove</span>
+                            <div matripple class="mat-ripple mat-button-ripple"></div>
+                        </button>
+                    </div>
+                    
+                    <br>
+                    <p class="button-hint-text" *ngIf="l.dynamicFields.length == 0">No addtional liabilities</p>
+                    <mat-form-field *ngFor="let d of l.dynamicFields" style="width: 20%; padding: 1%; min-width: 200px;" class="username-control" appearance="standard">
+                        <mat-label>{{d.label}}</mat-label>
+                        <input (focusout)="validateInput($event)" min="0" matInput placeholder="ex. 1,000" type="number" [(ngModel)]="d.value">
+                        <span matPrefix>{{currencyPrefix}}&nbsp;</span>
+                        <span matSuffix>.00</span>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <button (click)="submitData()" mat-raised-button color="primary" >
+            <span class="mat-button-wrapper">Calculate</span>
+            <div matripple class="mat-ripple mat-button-ripple"></div>
+        </button>
+    </div>
+</div>
+

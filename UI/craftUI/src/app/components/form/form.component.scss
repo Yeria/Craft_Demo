@@ -1,0 +1,141 @@
+@media (min-width: 774px) {
+    .form-window {
+        padding: 10em 10%;
+    
+        // .main-view {
+        //     display: flex;
+        //     align-items: baseline;
+        //     flex-direction: column;
+        // }
+    }
+
+    .title-bar {
+        // font-size: xxx-large;
+        // display: flex;
+        // flex-wrap: wrap;
+        // border-bottom: 1px solid;
+        // height: 30px;
+        // margin-bottom: 2em;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2.5em;
+
+        .greeting {
+            font-size: xxx-large;
+            margin-bottom: 0.5em;
+        }
+
+        .value {
+            font-size: xxx-large;
+            margin-left: 0.5em;
+        }
+    }
+}
+
+@media (max-width: 773px) {
+    .form-window {
+        padding: 20% 10%;
+    
+        // .main-view {
+        //     display: flex;
+        //     align-items: baseline;
+        //     flex-direction: column;
+        // }
+    }
+
+    .title-bar {
+        // font-size: xxx-large;
+        // display: flex;
+        // flex-wrap: wrap;
+        // border-bottom: 1px solid;
+        // height: 30px;
+        // margin-bottom: 2em;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2.5em;
+    
+        .greeting {
+            font-size: xx-large;
+            margin-bottom: 0.5em;
+        }
+
+        .value {
+            font-size: xx-large;
+            margin-left: 0.5em;
+        }
+    }
+}
+
+.button-hint-text {
+    font-size: large;
+    margin-bottom: 2em;
+}
+
+.button-bar {
+    margin: 1em 0;
+
+    .divider {
+        width: 1em;
+        display: inline-block;
+    }
+}
+
+.positive-balance {
+    color: #007e33;
+}
+
+.negative-balance {
+    color: #ff4444;
+}
+
+.subtitle-bar {
+    background-color: #673ab7;
+    color: white;
+    padding: 1em;
+    font-size: xx-large;
+    display: flex;
+    flex-wrap: wrap;
+    // border-bottom: 1px solid;
+    height: 30px;
+    margin-bottom: 1em;
+
+    .title {
+        font-size: xx-large;
+        flex-grow: 2;
+    }
+
+    .value {
+        font-size: x-large;
+        flex-grow: 1;
+        text-align: right;
+    }
+}
+
+.sticky {
+    padding-left: 10%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    z-index: 1;
+    background: #673ab7;
+    box-shadow: 0 3px 12px 0 rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    height: 2em;
+    width: 100%;
+
+    .greeting-name {
+        color: white;
+        font-size: x-large;
+        margin-right: 0.5em;
+    }
+    .greeting-text {
+        color: white;
+        font-size: x-large;
+        margin-right: 0.5em;
+    }
+    .greeting-value {
+        color: white;
+        font-size: x-large;
+        margin-right: 0.5em;
+    }
+}

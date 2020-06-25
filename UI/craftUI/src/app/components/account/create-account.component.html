@@ -1,0 +1,69 @@
+<div class="view-container">
+    <div class="create-acct-container">
+        <form class="width100" role="form" method="POST" [formGroup]="formData" (ngSubmit)="submitData()">
+            <!-- <mat-card class="login-container"> -->
+            <!-- <mat-card style="width: 50%; min-height: 50%; margin: auto;"> -->
+            <h1>Create Account</h1>
+
+            <mat-form-field class="width100">
+                <mat-label>Member Type</mat-label>
+                <mat-select formControlName="memType" required>
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let m of memTypes" [value]="m.value">
+                        {{m.name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error>Member type is <strong>required</strong></mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="width100 username-control" appearance="standard">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="Enter your first name" name="firstName" formControlName="firstName" required>
+                <!-- <mat-error>
+                    Please enter a valid email address
+                </mat-error> -->
+                <mat-error>
+                    First name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="width100 username-control" appearance="standard">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Enter your last name" name="lastName" formControlName="lastName" required>
+                <!-- <mat-error>
+                    Please enter a valid email address
+                </mat-error> -->
+                <mat-error>
+                    Last name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="width100 username-control" appearance="standard">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Enter your email" type="email" name="email" formControlName="email" required>
+                <!-- <mat-error>
+                    Please enter a valid email address
+                </mat-error> -->
+                <mat-error>
+                    A valid email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="width100 username-control" appearance="standard">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Enter your password" type="password" name="password" formControlName="password" required>
+                <mat-hint>At least 6 characters long with lower/upper characters and a digit</mat-hint>
+                <mat-error>
+                    A valid password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <button class="width100" mat-raised-button color="primary" type="submit">
+                <span class="mat-button-wrapper">Create Account</span>
+                <div matripple class="mat-ripple mat-button-ripple"></div>
+            </button>
+            <!-- </mat-card> -->
+            
+        </form>
+    </div>
+</div>
+
